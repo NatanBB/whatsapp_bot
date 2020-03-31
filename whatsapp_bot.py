@@ -5,7 +5,7 @@ import time
 class WhatsappBot:
     def __init__(self):
         self.mensagem = "Criei um bot pra mandar mensagem" # Mensagem a ser enviada aqui
-        self.grupos = ["teste"] # Nome do grupo ou pessoa aqui
+        self.nome = ["teste"] # Nome do grupo ou pessoa aqui
         options = webdriver.ChromeOptions()
         options.add_argument('lang=pt-br')
         self.driver = webdriver.Chrome(executable_path=r'./chromedriver.exe', chrome_options=options)
@@ -15,10 +15,10 @@ class WhatsappBot:
         time.sleep(10)
 
         while True:
-            for grupo in self.grupos:
-                grupos =self.driver.find_element_by_xpath(f"//span[@title='{grupo}']")
+            for conversa in self.nome:
+                nome =self.driver.find_element_by_xpath(f"//span[@title='{conversa}']")
                 time.sleep(1)
-                grupos.click()
+                nome.click()
                 chat_box = self.driver.find_element_by_class_name('_1Plpp')
                 time.sleep(1)
                 chat_box.click()
